@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Graphik-Medium;
+  src: local(Graphik-Medium), url(../fonts/Graphik-Medium.woff2);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Graphik-Regular;
+  src: local(Graphik-Regular), url(../fonts/Graphik-Regular.woff2);
+}
+body {
+  font-family: Graphik-Medium, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-header {
+  background-color: #FFFFFF;
+  padding: 10px 5%;
+  display: flex;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  gap: 15px;
+  box-shadow: 0px 1px 5px 0px #ccc;
+  z-index: 5;
+}
+.nav-header .logo {
+  max-width: 55px;
+}
+.nav-header .nav-navigator .nav-list {
+  display: flex;
+  gap: 15px;
+}
+.nav-header .nav-navigator .nav-list .nav-list-item {
+  padding: 10px;
+  display: block;
+  color: #111;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 4;
+}
+.nav-header .nav-navigator .nav-list .nav-list-item svg {
+  transition: transform 0.3s;
+}
+.nav-header .nav-navigator .nav-list .nav-list-item:hover svg {
+  transition: transform 0.3s;
+  transform: rotate(-180deg);
+}
+.nav-header .nav-navigator .nav-list .nav-list-item.active::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  background-color: #820AD1;
+}
+.nav-header .nav-navigator .nav-list .nav-list-item:hover + .nav-list-secondary {
+  transform: translate3d(0px, -1%, 0px);
+}
+.nav-header .nav-navigator .nav-list .nav-list-secondary {
+  position: absolute;
+  width: 100%;
+  padding: 100px 5%;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.5s ease 0.1s;
+  transform: translate3d(0px, -99%, 0px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.nav-header .nav-navigator .nav-list .nav-list-secondary ul li p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.nav-header .nav-navigator .nav-list .nav-list-secondary ul li a {
+  font-size: 24px;
+  color: #111;
+  display: block;
+  padding-block: 10px;
+  display: flex;
+  align-items: center;
+}
+.nav-header .nav-navigator .nav-list .nav-list-secondary ul li a span {
+  display: block;
+  font-size: 14px;
+  background: #f5e7ff;
+  padding: 4px 12px;
+  cursor: default;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+.nav-header .nav-navigator .nav-list .nav-list-secondary ul li a:hover {
+  color: #820AD1;
+}
+.nav-header .nav-navigator .nav-list .nav-list-secondary:hover {
+  transform: translate3d(0px, -1%, 0px);
+}
+.nav-header .nav-login {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: end;
+}
+.nav-header .nav-login .nav-login-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #820AD1;
+}
+
+.hero {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/img1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.hero .hero-content {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero .hero-content .hero-item {
+  max-width: 590px;
+  margin-left: 50px;
+}
+.hero .hero-content .hero-item .titulo-1 {
+  font-size: 48px;
+  line-height: 1.16;
+  color: #FFF;
+  margin-bottom: 20px;
+}
+.hero .hero-content .hero-item .titulo-2 {
+  font-size: 24px;
+  line-height: 1.4;
+  color: #FFF;
+}
+.hero .hero-content .hero-form {
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  max-width: 330px;
+  padding: 24px;
+  border-radius: 10px;
+}
+.hero .hero-content .hero-form h2 {
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+.hero .hero-content .hero-form form {
+  display: flex;
+  flex-direction: column;
+}
+.hero .hero-content .hero-form form label {
+  font-size: 14px;
+  color: #666;
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.hero .hero-content .hero-form form label input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0px;
+  outline: none;
+  transition: all 0.3s;
+}
+.hero .hero-content .hero-form form label input:focus {
+  padding: 10px;
+}
+.hero .hero-content .hero-form form .btn {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 60px;
+  background: #820ad1;
+  color: #ffffff;
+  height: 48px;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  cursor: pointer;
+  outline: 0px;
+  align-items: center;
+  border: transparent;
+}
+.hero .hero-content .hero-form form .btn:disabled {
+  color: rgba(17, 17, 17, 0.2);
+  background: rgba(17, 17, 17, 0.1019607843);
+  cursor: not-allowed;
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section.bg-cinza {
+  background-color: #f5f5f5;
+}
+.section .section-wrapper {
+  display: flex;
+  max-width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.section .section-wrapper .section-info {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.section .section-wrapper .section-info h2 {
+  font-size: 48px;
+  color: #820AD1;
+}
+.section .section-wrapper .section-info p {
+  font-size: 48px;
+  color: #111;
+  margin-bottom: 40px;
+}
+.section .section-wrapper .section-info a {
+  font-size: 18px;
+  color: #820AD1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section .section-wrapper .section-info a:hover {
+  text-decoration: underline;
+}
+.section .section-img {
+  margin-left: 40px;
+}
+.section .section-img img {
+  max-width: 100%;
+}
+
+.section-img {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.section-img.primeira {
+  background-image: url(../img/img5.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section-img.segunda {
+  background-image: url(../img/img6.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section-img.segunda svg {
+  transform: rotate(-45deg);
+}
+.section-img.terceira {
+  background-image: url(../img/img7.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section-img.terceira svg {
+  transform: rotate(-45deg);
+}
+.section-img .section-img-content {
+  font-size: 48px;
+  color: #fff;
+  max-width: 800px;
+  padding-left: 250px;
+}
+.section-img .section-img-content a {
+  font-size: 18px;
+  color: #FFF;
+}
+
+.footer {
+  width: 100%;
+  background-color: #111;
+  padding: 60px 5%;
+  border-bottom: 1px solid #222;
+}
+.footer .footer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.footer .footer-wrapper .footer-content {
+  margin-bottom: 80px;
+}
+.footer .footer-wrapper .footer-content p {
+  color: #f5f5f5;
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-family: "Graphik-Regular";
+}
+.footer .footer-wrapper .footer-content ul li {
+  color: #fff;
+  padding: 5px 0;
+}
+.footer .footer-wrapper .footer-content ul li a {
+  font-size: 18px;
+  display: block;
+  color: #FFF;
+}
+.footer .footer-wrapper .footer-content ul li a:hover {
+  color: #820AD1;
+}
+.footer .footer-wrapper .footer-content ul li a svg {
+  transform: rotate(-45deg);
+}
+.footer .footer-secondary {
+  display: grid;
+  grid-template-columns: 100px 9fr 2fr;
+}
+.footer .footer-secondary img {
+  max-width: 100%;
+}
+.footer .footer-secondary p {
+  color: #ffffff;
+  font-size: 16px;
+}
+.footer .footer-secondary .footer-icons {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer-secondary .footer-icons a {
+  color: #FFF;
+}
+.footer .footer-secondary .footer-icons a:hover {
+  color: #820AD1;
+}
+.footer .footer-secondary .footer-icons a svg:hover {
+  color: #ab4bea;
+}
+.footer .footer-secondary .footer-icons a svg path {
+  fill: currentColor;
+}
+.footer .footer-secondary .footer-icons a svg path:hover {
+  color: #ab4bea;
+}
+
+.error {
+  color: #dd686a;
+  font-size: 12px;
+  text-align: left;
+}/*# sourceMappingURL=main.css.map */
